@@ -12,216 +12,294 @@
 <meta property="og:url" content="https://doismaisum.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <!-- RASTREAMENTO: colar aqui o código do Pixel do Meta / Google Analytics -->
 
 <style>
 :root{
-  --creme:#f8f5f1;
-  --bege:#e7ddd2;
-  --areia:#c5a587;
-  --marrom:#5a4638;
-  --laranja:#ffa51f;
-  --ambar:#f6a100;
-  --vermelho:#cc0000;
-  --verde:#2e6417;
+  --creme:#F8F5F1;
+  --bege:#E8DDD2;
+  --camelo:#C4A484;
+  --camelo-esc:#9A7752;
+  --marrom:#5A4638;
+  --marrom-esc:#3E2F25;
+  --oliva:#4F5A43;
+  --laranja:#F5A524;
+  --terracota:#A65A44;
+  --branco:#FFFDFA;
+  --serifa:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --sombra:0 26px 60px -34px rgba(62,47,37,.45);
+  --linha:rgba(90,70,56,.16);
 }
 *{box-sizing:border-box}
 body{
   margin:0;background:var(--creme);color:var(--marrom);
-  font-family:"Open Sans",system-ui,sans-serif;font-size:17px;line-height:1.5;
-  -webkit-font-smoothing:antialiased;
+  font-family:var(--sans);font-size:16px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 img{max-width:100%;height:auto;display:block}
-p{margin:0 0 1.4em}
+p{margin:0 0 1.35em;text-wrap:pretty}
 p:last-child{margin-bottom:0}
-h1,h2,h3{margin:0;line-height:1.25;text-wrap:balance}
-p{text-wrap:pretty}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1,h2{font-family:var(--serifa);font-weight:600;line-height:1.08;letter-spacing:-.01em;color:var(--marrom-esc)}
+h2{font-size:clamp(2rem,5.4vw,3rem)}
+b,strong{font-weight:600}
 
-.sec{padding:56px 20px}
-.sec--bege{background:var(--bege)}
-.sec--marrom{background:var(--marrom);color:#fff}
-.wrap{max-width:860px;margin:0 auto}
-.wrap--estreito{max-width:700px}
+/* Estrutura */
+.sec{padding:clamp(36px,6vw,68px) 20px}
+.wrap{max-width:820px;margin:0 auto}
+.wrap--estreito{max-width:660px}
 .centro{text-align:center}
-.destaque{font-weight:700;font-size:1.12em}
-.ambar{color:var(--ambar)}
-h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:700}
-.sub{margin-top:.5em}
+.sub{margin-top:.9em;max-width:560px;margin-inline:auto}
+.ambar{color:var(--camelo-esc);font-style:italic}
+.destaque{
+  font-family:var(--serifa);font-weight:600;font-style:italic;
+  font-size:clamp(1.45rem,3.6vw,1.9rem);line-height:1.25;color:var(--marrom-esc);
+  max-width:620px;margin-inline:auto;
+}
+
+/* Painéis: blocos de cor flutuando sobre o fundo, em vez de faixas inteiras */
+.sec--bege,.sec--marrom,.final{
+  width:min(1160px,calc(100% - 28px));margin:clamp(14px,3vw,30px) auto;
+  border-radius:clamp(28px,5vw,56px);
+  padding:clamp(48px,7.5vw,92px) clamp(20px,5vw,64px);
+}
+.sec--bege{background:linear-gradient(180deg,var(--bege) 0%,#EFE7DE 100%)}
+.sec--marrom,.final{background:var(--marrom);color:#F3ECE4}
+.sec--marrom .destaque,.final h2{color:#fff}
 
 /* Botão */
 .btn{
-  display:inline-block;background:var(--laranja);color:#fff;text-decoration:none;
-  font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.01em;
-  text-transform:uppercase;text-align:center;
-  padding:18px 44px;border-radius:999px;border:2px solid var(--marrom);
-  transition:transform .15s ease,filter .15s ease;
+  display:inline-block;background:var(--laranja);color:var(--marrom-esc);text-decoration:none;
+  font-family:var(--sans);font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;text-align:center;
+  padding:19px 40px;border-radius:999px;
+  box-shadow:0 16px 30px -16px rgba(214,133,10,.9);
+  transition:transform .2s ease,box-shadow .2s ease;
 }
-.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
-.btn:focus-visible{outline:3px solid var(--marrom);outline-offset:3px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 22px 36px -16px rgba(214,133,10,.95)}
+.btn:focus-visible{outline:3px solid var(--marrom-esc);outline-offset:4px}
 .cta{margin-top:40px;text-align:center}
 
 /* Abertura */
-.hero{padding:8px 20px 44px;text-align:center}
-.hero__logo{width:min(440px,88%);margin:0 auto -34px}
-.hero__tag{
-  display:inline-block;background:var(--marrom);color:#fff;font-weight:700;font-size:.85rem;
-  letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:8px 20px;margin:0;
+.hero{
+  padding:clamp(20px,4vw,44px) 20px clamp(36px,6vw,72px);
+  background:radial-gradient(900px 520px at 85% 0%,var(--bege) 0%,rgba(232,221,210,0) 70%);
 }
-.hero__data{font-weight:700;text-transform:uppercase;line-height:1.3;margin:26px 0 0}
-.hero__data span{display:block;font-weight:400;text-transform:none}
-.hero h1{font-size:clamp(1.7rem,5.4vw,2.6rem);font-weight:800;line-height:1.18;max-width:760px;margin:22px auto 18px}
-.hero h1 span{display:block;color:var(--ambar)}
-.hero__texto{max-width:580px;margin:0 auto;font-size:1.08em}
-.hero .cta{margin-top:26px}
-
-/* Quem está lendo sozinha */
-.sozinha{max-width:760px;margin:0 auto;background:var(--marrom);color:#fff;border-radius:30px;padding:38px 34px}
-.sozinha h2{font-size:clamp(1.35rem,3.8vw,1.75rem);margin-bottom:.6em}
-.sozinha ul{list-style:none;margin:1.4em 0;padding:0;display:grid;gap:14px}
-.sozinha li{background:rgba(255,255,255,.09);border-radius:18px;padding:14px 18px}
-.sozinha li b{color:var(--laranja)}
-.preco__nota{font-size:.85rem;margin:0 0 1.2em;opacity:.9}
+.hero__grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
+.hero__logo{width:min(250px,60%);margin-bottom:26px}
+.hero__tag{
+  font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--oliva);
+  margin:0 0 16px;display:flex;align-items:center;gap:12px;
+}
+.hero__tag::before{content:"";width:34px;height:1px;background:var(--oliva);flex:none}
+.hero h1{font-size:clamp(2.3rem,6vw,3.9rem);margin:0 0 22px}
+.hero h1 span{display:block;font-style:italic;color:var(--camelo-esc)}
+.hero__texto{font-size:1.06rem;max-width:520px;margin:0}
+.hero__data{
+  margin:26px 0 0;padding:14px 0;border-block:1px solid var(--linha);
+  font-size:.9rem;display:flex;flex-wrap:wrap;gap:4px 14px;max-width:520px;
+}
+.hero__data b{font-weight:700;color:var(--marrom-esc)}
+.hero .cta{margin-top:28px;text-align:left}
+.hero__foto{position:relative;justify-self:center;width:min(400px,100%)}
+.hero__foto::before{
+  content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--camelo);
+  border-radius:999px 999px 32px 32px;
+}
+.hero__foto img{
+  position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 78%;
+  border-radius:999px 999px 32px 32px;box-shadow:var(--sombra);
+}
 
 /* Dores */
-.frases{display:grid;grid-template-columns:repeat(2,minmax(0,340px));justify-content:center;gap:18px 20px;margin-top:34px}
+.frases{display:grid;grid-template-columns:repeat(2,minmax(0,360px));justify-content:center;gap:16px;margin-top:38px}
 .frases span{
-  background:var(--areia);border:2px solid var(--marrom);border-radius:26px;
-  padding:20px 16px;font-style:italic;text-align:center;
+  background:var(--branco);border-radius:22px;padding:22px 20px;text-align:center;
+  font-family:var(--serifa);font-style:italic;font-weight:500;font-size:1.3rem;line-height:1.25;
+  box-shadow:0 14px 30px -24px rgba(62,47,37,.5);
 }
 
 /* Comparativo */
-.compara{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:780px;margin:0 auto}
-.compara__col{background:var(--bege);border-radius:22px;padding:26px 16px 22px;border-left:7px solid var(--vermelho);border-bottom:7px solid var(--vermelho)}
-.compara__col--sim{border-color:var(--verde)}
-.compara__col h3{font-size:1.45rem;text-align:center;margin-bottom:22px}
-.compara__col h3 b{display:block;color:var(--vermelho)}
-.compara__col--sim h3 b{color:var(--verde)}
-.compara__col ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
-.compara__col li{border:3px solid var(--creme);border-radius:22px;padding:14px 14px;font-size:.95rem}
+.compara{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin:0 auto}
+.compara__col{background:var(--branco);border-radius:30px;padding:34px 30px 30px;box-shadow:var(--sombra);border-top:4px solid var(--terracota)}
+.compara__col--sim{border-top-color:var(--oliva)}
+.compara__col h3{font-family:var(--serifa);font-weight:600;font-size:1.7rem;line-height:1.1;margin-bottom:20px}
+.compara__col h3 b{display:block;font-style:italic;font-weight:600;color:var(--terracota)}
+.compara__col--sim h3 b{color:var(--oliva)}
+.compara__col ul{list-style:none;margin:0;padding:0}
+.compara__col li{position:relative;padding:14px 0 14px 38px;border-top:1px solid var(--linha);font-size:.95rem;line-height:1.55}
+
+/* Marcadores */
+.compara__col li::before,.fase li::before,.oferta li::before{
+  position:absolute;left:0;top:14px;width:24px;height:24px;border-radius:50%;
+  display:grid;place-items:center;font-size:.72rem;font-weight:700;color:#fff;line-height:1;
+  content:"\2713";background:var(--oliva);
+}
+.compara__col:not(.compara__col--sim) li::before{content:"\2715";background:var(--terracota)}
 
 /* História */
 .caixa{
-  border:1.5px solid var(--bege);border-radius:28px;padding:22px 26px;
-  font-weight:700;font-size:1.12em;color:var(--areia);text-align:center;
-  max-width:620px;margin:0 auto 1.6em;
+  font-family:var(--serifa);font-style:italic;font-weight:600;font-size:clamp(1.4rem,3.4vw,1.75rem);line-height:1.25;
+  color:var(--camelo-esc);text-align:center;max-width:560px;margin:1.4em auto 1.6em;padding:22px 0;border-block:1px solid var(--linha);
 }
-.duas{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center;margin-bottom:44px}
-.foto{border-radius:26px;box-shadow:0 14px 34px rgba(0,0,0,.22)}
-.foto--giro{transform:rotate(4deg);width:230px}
-.foto--giro-esq{transform:rotate(-4deg);width:260px}
-.foto--larga{width:100%;max-width:660px;margin:0 auto 34px;border-radius:14px}
-.nasceu{display:flex;align-items:center;justify-content:center;gap:28px;margin:36px 0 40px}
-.nasceu p{font-weight:700;font-size:1.35rem;line-height:1.35;margin:0}
+.duas{display:grid;grid-template-columns:1fr auto;gap:clamp(28px,5vw,56px);align-items:center;margin-bottom:48px;text-align:left}
+.foto{border-radius:28px;box-shadow:var(--sombra)}
+.foto--giro{transform:rotate(3deg);width:240px}
+.foto--larga{width:100%;max-width:720px;margin:6px auto 40px;border-radius:32px}
+.nasceu{margin:34px 0 38px}
+.nasceu p{font-family:var(--serifa);font-weight:600;font-style:italic;font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.1;color:var(--marrom-esc);margin:0}
 
 /* Depoimentos */
-.serifa{font-family:Lora,Georgia,serif;font-weight:400;font-size:clamp(1.6rem,4.6vw,2.3rem)}
-.depo{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1040px;margin:40px auto 0}
-.depo button{padding:0;border:2px solid var(--areia);background:none;cursor:zoom-in;border-radius:6px;overflow:hidden}
+.depo{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:42px auto 0}
+.depo button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:20px;overflow:hidden;box-shadow:var(--sombra);transition:transform .25s ease}
+.depo button:hover{transform:translateY(-4px)}
 .depo button:focus-visible{outline:3px solid var(--marrom);outline-offset:3px}
 .depo img{width:100%}
 dialog{border:0;padding:0;background:transparent;max-width:min(94vw,640px)}
 dialog::backdrop{background:rgba(40,28,20,.82)}
-dialog img{width:100%;border-radius:8px;cursor:zoom-out}
+dialog img{width:100%;border-radius:12px;cursor:zoom-out}
 
 /* O que muda */
-.aprende{list-style:none;padding:0;margin:34px auto 0;max-width:600px;display:grid;gap:22px}
-.aprende b{display:block}
-.aprende span{display:block;font-size:.95rem;padding-left:1.7em}
-.selo{
-  background:var(--bege);border:1.5px solid var(--marrom);border-radius:26px;
-  padding:20px 28px;font-weight:700;font-size:1.12em;text-align:center;
-  max-width:420px;margin:44px auto 0;
+.aprende{list-style:none;padding:0;margin:40px auto 0;max-width:640px;counter-reset:n}
+.aprende li{counter-increment:n;position:relative;padding:20px 0 20px 68px;border-top:1px solid var(--linha)}
+.aprende li:last-child{border-bottom:1px solid var(--linha)}
+.aprende li::before{
+  content:counter(n,decimal-leading-zero);position:absolute;left:0;top:14px;
+  font-family:var(--serifa);font-size:2.2rem;font-weight:500;font-style:italic;color:var(--camelo);line-height:1;
 }
-.cta--junto{margin-top:18px}
+.aprende b{display:block;font-weight:600;color:var(--marrom-esc);font-size:1.02rem}
+.aprende span{display:block;font-size:.93rem}
+.selo{
+  font-family:var(--serifa);font-style:italic;font-weight:600;font-size:clamp(1.4rem,3.4vw,1.75rem);line-height:1.25;
+  text-align:center;max-width:460px;margin:44px auto 0;color:var(--marrom-esc);
+}
+.cta--junto{margin-top:26px}
 
 /* Fases */
-.fases{display:grid;gap:40px;max-width:500px;margin:40px auto 0}
-.fase{background:var(--bege);border-radius:30px;padding:0 34px 34px;box-shadow:-8px 8px 0 var(--marrom);position:relative}
-.fase img{width:100%;max-width:340px;margin:0 auto 26px}
-.fase__tag{
-  position:absolute;top:12px;left:50%;margin-left:-170px;
-  background:var(--creme);border:1.5px solid var(--marrom);border-radius:999px;
-  padding:5px 22px;font-weight:700;font-size:.85rem;color:#000;
-}
-.fase{color:#000}
-.fase h3{font-size:1rem;margin-bottom:20px}
-.fase ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.fases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:44px auto 0}
+.fase{background:var(--branco);border-radius:30px;padding:26px 28px 30px;box-shadow:var(--sombra)}
+.fase__tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;color:var(--oliva)}
+.fase img{width:100%;max-width:300px;margin:6px auto 14px;mix-blend-mode:multiply}
+.fase h3{font-family:var(--serifa);font-size:1.45rem;font-weight:600;line-height:1.15;color:var(--marrom-esc);margin-bottom:10px}
+.fase ul{list-style:none;margin:0;padding:0}
+.fase li{position:relative;padding:12px 0 12px 38px;border-top:1px solid var(--linha);font-size:.93rem;line-height:1.55}
+.fase li::before{top:12px}
 
 /* Oferta */
 .oferta{
-  background:var(--bege);border:1.5px solid var(--areia);border-radius:30px;padding:30px;
-  display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center;max-width:940px;margin:0 auto;
+  background:linear-gradient(180deg,var(--bege) 0%,#EFE7DE 100%);border-radius:clamp(28px,5vw,48px);
+  padding:clamp(22px,4vw,46px);display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(22px,4vw,48px);align-items:center;
+  max-width:1000px;margin:0 auto;
 }
-.oferta ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.oferta li{background:var(--marrom);color:#fff;font-weight:700;font-size:.95rem;border-radius:999px;padding:13px 22px 13px 40px;position:relative}
-.oferta li::before{content:"";position:absolute;left:20px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:#fff}
-.oferta li.bonus{color:var(--laranja);padding-left:20px}
-.oferta li.bonus::before{display:none}
-.preco{background:var(--marrom);color:#fff;border-radius:26px;padding:6px 24px 30px;text-align:center}
-.preco img{width:210px;margin:0 auto -18px}
-.preco__de{font-size:1.2rem;text-transform:uppercase;margin:.35em 0 0}
-.preco__de s{color:var(--ambar)}
-.preco__valor{font-size:1.9rem;line-height:1.1;margin:.15em 0 0}
-.preco__valor b{font-size:3.1rem;font-weight:800;letter-spacing:-.02em}
-.preco__vista{font-weight:700;font-size:1.15rem;margin:.2em 0 1.1em}
-.preco .btn{padding:16px 22px;font-size:.82rem;border-color:#fff;display:block}
-.preco__garantia{font-size:.85rem;margin:14px 0 0;opacity:.9}
+.oferta ul{list-style:none;margin:0;padding:0}
+.oferta li{position:relative;padding:15px 0 15px 38px;border-bottom:1px solid var(--linha);font-weight:600;font-size:.97rem;line-height:1.4}
+.oferta li::before{top:15px}
+.oferta li:last-child{border-bottom:0}
+.oferta li.bonus{color:var(--marrom-esc)}
+.oferta li.bonus::before{content:"+";background:var(--laranja);color:var(--marrom-esc);font-size:1rem}
+.preco{background:var(--marrom);color:#fff;border-radius:32px;padding:8px 28px 32px;text-align:center;box-shadow:var(--sombra)}
+.preco img{width:200px;margin:0 auto -14px}
+.preco__de{font-size:1rem;letter-spacing:.08em;text-transform:uppercase;margin:.6em 0 0}
+.preco__de s{color:var(--camelo)}
+.preco__valor{font-family:var(--serifa);font-size:2rem;line-height:1;margin:.1em 0 0}
+.preco__valor b{font-size:4.4rem;font-weight:700;letter-spacing:-.02em}
+.preco__vista{font-weight:600;font-size:1.05rem;margin:.1em 0 1em}
+.preco__nota{font-size:.82rem;line-height:1.5;margin:0 0 1.3em;opacity:.85}
+.preco .btn{padding:18px 20px;font-size:.8rem;display:block}
+.preco__garantia{font-size:.82rem;margin:16px 0 0;opacity:.85}
+
+/* Quem está lendo sozinha */
+.sozinha{max-width:820px;margin:0 auto;background:var(--oliva);color:#F3EFE6;border-radius:clamp(28px,5vw,48px);padding:clamp(34px,6vw,60px) clamp(22px,5vw,56px);box-shadow:var(--sombra)}
+.sozinha h2{color:#fff;font-size:clamp(1.8rem,4.6vw,2.5rem);margin-bottom:.55em}
+.sozinha ul{list-style:none;margin:1.5em 0;padding:0}
+.sozinha li{padding:15px 0;border-top:1px solid rgba(255,255,255,.2)}
+.sozinha li:last-child{border-bottom:1px solid rgba(255,255,255,.2)}
+.sozinha li b{color:#fff;font-weight:700}
 
 /* Mentores */
-.mentores{display:flex;justify-content:center;margin-bottom:26px}
+.mentores{display:flex;justify-content:center;margin-bottom:30px}
 .mentor{position:relative;width:min(300px,46vw)}
 .mentor + .mentor{margin-left:-34px;margin-top:44px}
-.mentor img{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 12%;border-radius:50%;border:9px solid var(--bege)}
-.mentor + .mentor img{border-color:var(--marrom);object-position:50% 16%}
+.mentor img{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 12%;border-radius:50%;border:8px solid var(--bege);box-shadow:var(--sombra)}
+.mentor + .mentor img{border-color:var(--camelo);object-position:50% 16%}
 .mentor span{
-  position:absolute;bottom:14%;left:-4%;background:var(--marrom);color:#fff;border:2px solid var(--creme);
-  font-weight:700;font-size:.8rem;line-height:1.1;text-align:center;padding:6px 12px;
+  position:absolute;bottom:12%;left:-2%;background:var(--marrom);color:#fff;border-radius:999px;
+  font-weight:600;font-size:.74rem;line-height:1;padding:9px 16px;letter-spacing:.04em;white-space:nowrap;
 }
-.mentor span b{display:block;color:var(--laranja);font-size:1.15em}
-.mentor + .mentor span{left:auto;right:-6%;background:#fff;color:#000;border-color:#000}
-.pill{display:inline-block;background:var(--marrom);color:#fff;font-weight:700;border-radius:999px;padding:9px 44px;margin-bottom:10px}
-.bio{border:4px solid var(--marrom);background:var(--bege);border-radius:30px;padding:24px 34px;margin-top:26px;font-size:.95rem;max-width:880px;margin-left:auto;margin-right:auto}
-.bio ul{margin:0 0 1.2em;padding-left:1.4em}
+.mentor span b{font-weight:600;margin-right:.3em}
+.mentor + .mentor span{left:auto;right:-4%;background:var(--oliva)}
+.pill{display:block;font-size:.74rem;font-weight:600;letter-spacing:.2em;color:var(--oliva);margin-bottom:8px}
+.bios{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1000px;margin:34px auto 0}
+.bio{background:var(--branco);border-radius:30px;padding:30px 32px;font-size:.93rem;box-shadow:var(--sombra);text-align:left}
+.bio ul{margin:0 0 1.1em;padding-left:1.2em}
+.bio li{margin-bottom:.35em}
+.bio li::marker{color:var(--camelo)}
 .bio p{margin:0}
 
 /* FAQ */
-.faq{max-width:940px;margin:36px auto 0;display:grid;gap:14px}
-.faq summary{background:var(--ambar);color:#000;font-weight:700;border-radius:26px;padding:14px 56px 14px 28px;cursor:pointer;list-style:none;position:relative}
+.faq-titulo{font-size:clamp(2rem,5.4vw,3rem)}
+.faq-sub{font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--oliva);margin-top:10px}
+.faq{max-width:820px;margin:38px auto 0;display:grid;gap:12px}
+.faq details{background:var(--branco);border-radius:22px;box-shadow:0 12px 30px -26px rgba(62,47,37,.6);transition:box-shadow .2s ease}
+.faq details[open]{box-shadow:var(--sombra)}
+.faq summary{
+  font-weight:600;color:var(--marrom-esc);padding:19px 64px 19px 26px;cursor:pointer;list-style:none;position:relative;line-height:1.45;
+}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:1.6rem;font-weight:400;line-height:1}
-.faq details[open] summary::after{content:"−"}
-.faq summary:focus-visible{outline:3px solid var(--marrom);outline-offset:3px}
-.faq p{background:var(--marrom);color:#fff;border-radius:26px;padding:22px 28px 26px;font-size:.95rem;margin-top:8px}
-.faq-titulo{color:#000;font-size:clamp(1.8rem,5.4vw,2.6rem)}
-.faq-sub{color:#000;font-weight:700;text-transform:uppercase;font-size:1.1rem}
-.final h2{color:#000;font-size:clamp(1.7rem,5vw,2.4rem)}
-.final .cta{margin-top:20px}
+.faq summary::after{
+  content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  width:30px;height:30px;border-radius:50%;background:var(--bege);color:var(--marrom-esc);
+  display:grid;place-items:center;font-size:1.2rem;font-weight:400;line-height:1;transition:background .2s ease;
+}
+.faq details[open] summary::after{content:"\2212";background:var(--laranja)}
+.faq summary:focus-visible{outline:3px solid var(--marrom);outline-offset:3px;border-radius:22px}
+.faq p{padding:0 26px 24px;font-size:.95rem;margin:0}
 
+/* Final */
+.final h2{font-size:clamp(2.1rem,6vw,3.4rem)}
+.final__data{margin:14px 0 0;font-size:.92rem;letter-spacing:.04em;opacity:.9}
+.final .cta{margin-top:30px}
+.final{margin-bottom:clamp(20px,4vw,44px)}
+
+/* Entrada suave na rolagem */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero__grid{grid-template-columns:1fr;text-align:center}
+  .hero__logo{margin-inline:auto}
+  .hero__tag{justify-content:center}
+  .hero__tag::before{display:none}
+  .hero__texto,.hero__data{margin-inline:auto}
+  .hero__data{justify-content:center}
+  .hero .cta{text-align:center}
+  .hero__foto{width:min(320px,82%);margin-top:18px}
+  .fases{grid-template-columns:1fr;max-width:480px}
+  .bios{grid-template-columns:1fr;max-width:560px}
+}
 @media (max-width:720px){
-  body{font-size:16px}
-  .sec{padding:44px 18px}
-  .btn{padding:17px 16px;font-size:.84rem;display:block;max-width:420px;margin-inline:auto}
+  body{font-size:15.5px}
+  .btn{padding:18px 18px;font-size:.8rem;display:block;max-width:420px;margin-inline:auto}
   .frases{grid-template-columns:1fr;gap:12px}
   .compara{grid-template-columns:1fr}
-  .duas{grid-template-columns:1fr;justify-items:center;gap:30px}
-  .nasceu{flex-direction:column;text-align:center}
-  .depo{grid-template-columns:1fr;max-width:460px}
-  .fase{padding:0 22px 28px}
-  .fase__tag{left:22px;margin-left:0}
-  .oferta{grid-template-columns:1fr;padding:18px;gap:22px}
-  .oferta li{border-radius:22px}
-  .bio{padding:20px 22px;border-radius:24px}
-  .faq summary{border-radius:20px;padding:13px 48px 13px 20px}
-  .faq summary::after{right:18px}
-  .faq p{padding:18px 20px 22px;border-radius:20px}
+  .compara__col{padding:28px 22px 22px}
+  .duas{grid-template-columns:1fr;justify-items:center;text-align:center;gap:30px}
+  .depo{grid-template-columns:1fr;max-width:440px}
+  .oferta{grid-template-columns:1fr}
+  .preco{padding-inline:20px}
+  .bio{padding:26px 22px}
   .mentor + .mentor{margin-left:-22px;margin-top:30px}
   .mentor img{border-width:6px}
-  .mentor span{font-size:.7rem;padding:4px 8px}
+  .mentor span{font-size:.66rem;padding:7px 11px}
+  .faq summary{padding:17px 58px 17px 20px}
+  .faq p{padding:0 20px 20px}
+  .aprende li{padding-left:56px}
 }
 @media (prefers-reduced-motion:reduce){
-  .btn{transition:none}
+  .btn,.depo button{transition:none}
+  .js .rv{opacity:1;transform:none;transition:none}
 }
 </style>
 </head>
@@ -230,12 +308,17 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 
 <!-- ABERTURA -->
 <header class="hero">
-  <img class="hero__logo" src="assets/logo.png" alt="Imersão Dois mais Um" width="800" height="450">
-  <p class="hero__tag">Imersão online e ao vivo para casais endividados</p>
-  <h1>Entrem endividados e sem saber por onde começar. <span>Saiam com o plano do casal pronto.</span></h1>
-  <p class="hero__texto">Em 4 horas, vocês dois fazem o diagnóstico financeiro do casal, montam o orçamento juntos e saem sabendo qual é o próximo passo. Sem briga e sem um carregar o peso sozinho.</p>
-  <p class="hero__data">Sábado, 28/11 <span>das 14:30 às 18:30, ao vivo pelo Zoom</span></p>
-  <div class="cta"><a class="btn" href="https://pay.hotmart.com/V108424352J">Quero sair com o nosso plano ➔</a></div>
+  <div class="hero__grid">
+    <div class="hero__col">
+      <img class="hero__logo" src="assets/logo.png" alt="Imersão Dois mais Um" width="501" height="258">
+      <p class="hero__tag">Imersão online e ao vivo para casais endividados</p>
+      <h1>Entrem endividados e sem saber por onde começar. <span>Saiam com o plano do casal pronto.</span></h1>
+      <p class="hero__texto">Em 4 horas, vocês dois fazem o diagnóstico financeiro do casal, montam o orçamento juntos e saem sabendo qual é o próximo passo. Sem briga e sem um carregar o peso sozinho.</p>
+      <p class="hero__data"><b>Sábado, 28/11</b><span>das 14:30 às 18:30</span><span>ao vivo pelo Zoom</span></p>
+      <div class="cta"><a class="btn" href="https://pay.hotmart.com/V108424352J">Quero sair com o nosso plano ➔</a></div>
+    </div>
+    <div class="hero__foto"><img src="assets/casal.jpg" alt="Michael e Cinthia abraçados e sorrindo" width="1000" height="1778"></div>
+  </div>
 </header>
 
 <!-- DORES -->
@@ -258,19 +341,19 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
     <div class="compara__col">
       <h3>Se vocês estão <b>cansados de:</b></h3>
       <ul>
-        <li>❌ Dinheiro ser motivo constante de discussões, cobranças e silêncio em casa.</li>
-        <li>❌ Decisões tomadas individualmente sem alinhamento com o cônjuge.</li>
-        <li>❌ Sensação contínua de trabalhar apenas para pagar contas sem ver o futuro.</li>
-        <li>❌ Zero reservas de segurança e vulnerabilidade diante de imprevistos.</li>
+        <li>Dinheiro ser motivo constante de discussões, cobranças e silêncio em casa.</li>
+        <li>Decisões tomadas individualmente sem alinhamento com o cônjuge.</li>
+        <li>Sensação contínua de trabalhar apenas para pagar contas sem ver o futuro.</li>
+        <li>Zero reservas de segurança e vulnerabilidade diante de imprevistos.</li>
       </ul>
     </div>
     <div class="compara__col compara__col--sim">
       <h3>Vocês provavelmente <b>querem:</b></h3>
       <ul>
-        <li>✅ Conversas leves, transparentes e estratégicas sobre as finanças do casal.</li>
-        <li>✅ Propósitos e metas alinhados em equipe, caminhando na mesma direção.</li>
-        <li>✅ Orçamento claro, rotina descomplicada e construção real de patrimônio.</li>
-        <li>✅ Paz de espírito, união fortalecida e segurança para a família.</li>
+        <li>Conversas leves, transparentes e estratégicas sobre as finanças do casal.</li>
+        <li>Propósitos e metas alinhados em equipe, caminhando na mesma direção.</li>
+        <li>Orçamento claro, rotina descomplicada e construção real de patrimônio.</li>
+        <li>Paz de espírito, união fortalecida e segurança para a família.</li>
       </ul>
     </div>
   </div>
@@ -278,7 +361,7 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 </section>
 
 <!-- HISTÓRIA -->
-<section class="sec centro" style="padding-top:8px">
+<section class="sec centro">
   <div class="wrap wrap--estreito">
     <h2 style="margin-bottom:.7em">NÓS JÁ ESTIVEMOS NESSE LUGAR.</h2>
     <p>Na nossa lua de mel, até água de coco na praia precisava caber no orçamento! Gastamos mais do que podíamos na festa e não queríamos começar o casamento endividados.</p>
@@ -305,10 +388,10 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
   </div>
 </section>
 
-<section class="sec centro" style="padding-top:28px">
+<section class="sec centro">
   <div class="wrap">
     <p>Mais tarde, nossa situação melhorou, os contratos voltaram e tivemos nossa segunda filha, Sophie. Dessa vez, tínhamos começado a construir uma reserva de segurança.</p>
-    <img class="foto foto--larga" src="assets/familia.jpg" alt="Michael e Cinthia com as duas filhas" width="1599" height="1066" loading="lazy">
+    <img class="foto foto--larga" src="assets/familia.jpg" alt="Michael e Cinthia com as duas filhas" width="1600" height="1067" loading="lazy">
     <div class="wrap wrap--estreito">
       <p>Aos seis meses, Sophie teve uma reação alérgica ao ovo e precisou de atendimento médico. Médicos, exames, especialistas e medicamentos foram consumindo nossa reserva, que ainda era pequena. <b>Pouco a pouco, o dinheiro acabou.</b></p>
       <p>Foi quando realmente precisamos dela que entendemos o quanto era importante ter construído uma reserva.</p>
@@ -327,13 +410,12 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
   </div>
 </section>
 
-<section class="sec centro" style="padding-top:36px">
+<section class="sec centro">
   <div class="wrap">
     <p>Em outubro de 2025, nossa pastora nos aconselhou a orar sobre a possibilidade de nos unirmos profissionalmente. Inicialmente, achei desafiador demais. Mas, em maio de 2026, resolvemos buscar a direção de Deus juntos.</p>
     <p>Começamos a enxergar de outra maneira a realidade dos casais endividados e a necessidade de ajudá-los. <b>Parecia um pedido de socorro!</b></p>
     <div class="nasceu">
-      <img class="foto foto--giro-esq" src="assets/casal.jpg" alt="Michael e Cinthia abraçados" width="450" height="800" loading="lazy">
-      <p>Em junho de 2026,<br>nasceu a Dois Mais Um.</p>
+      <p>Em junho de 2026, nasceu a Dois Mais Um.</p>
     </div>
     <p>Mesmo com menos de 300 seguidores, os primeiros casais começaram a chegar e as transformações aconteceram. Em agosto, fomos convidados pela nossa igreja para realizar uma imersão com casais de líderes e pastores. Os testemunhos vieram ali mesmo.</p>
     <div class="cta"><a class="btn" href="https://pay.hotmart.com/V108424352J">Quero participar da imersão ➔</a></div>
@@ -344,9 +426,9 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 <section class="sec sec--bege centro">
   <h2 class="serifa">Veja o que casais como vocês<br>estão falando após a imersão:</h2>
   <div class="depo">
-    <button type="button" aria-label="Ampliar depoimento de Ana Paula"><img src="assets/depoimento-1.png" alt="Depoimento de Ana Paula no WhatsApp agradecendo ao Michael e à Cinthia pela imersão" width="640" height="800" loading="lazy"></button>
-    <button type="button" aria-label="Ampliar depoimento de um casal"><img src="assets/depoimento-2.png" alt="Depoimento de um casal no WhatsApp agradecendo pela Imersão Financeira para Casais" width="640" height="800" loading="lazy"></button>
-    <button type="button" aria-label="Ampliar depoimentos de Lennon Freitas e Sarah Silva"><img src="assets/depoimento-3.png" alt="Depoimentos de Lennon Freitas e Sarah Silva no WhatsApp sobre a imersão" width="640" height="800" loading="lazy"></button>
+    <button type="button" aria-label="Ampliar depoimento de Ana Paula"><img src="assets/depoimento-1.jpg" alt="Depoimento de Ana Paula no WhatsApp agradecendo ao Michael e à Cinthia pela imersão" width="640" height="800" loading="lazy"></button>
+    <button type="button" aria-label="Ampliar depoimento de um casal"><img src="assets/depoimento-2.jpg" alt="Depoimento de um casal no WhatsApp agradecendo pela Imersão Financeira para Casais" width="640" height="800" loading="lazy"></button>
+    <button type="button" aria-label="Ampliar depoimentos de Lennon Freitas e Sarah Silva"><img src="assets/depoimento-3.jpg" alt="Depoimentos de Lennon Freitas e Sarah Silva no WhatsApp sobre a imersão" width="640" height="800" loading="lazy"></button>
   </div>
 </section>
 <dialog id="zoom" aria-label="Depoimento ampliado"><img src="" alt=""></dialog>
@@ -359,11 +441,11 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
       <p class="sub">Vocês vão sair da imersão sabendo como:</p>
     </div>
     <ul class="aprende">
-      <li><b>👥 Entender como cada um lida com dinheiro</b><span>Reconhecer os comportamentos, diferenças e pontos de atenção do casal.</span></li>
-      <li><b>🤝 Tomar decisões juntos</b><span>Melhorar a comunicação, alinhar prioridades e construir objetivos em comum.</span></li>
-      <li><b>📖 Administrar com princípios bíblicos</b><span>Colocar os princípios como fundamento das decisões financeiras da família.</span></li>
-      <li><b>💲 Organizar o dinheiro na prática</b><span>Construir o orçamento do casal juntos, com uma planilha pronta para usar.</span></li>
-      <li><b>🗓️ Criar uma rotina financeira a dois</b><span>Saber como acompanhar os gastos e manter o planejamento funcionando.</span></li>
+      <li><b>Entender como cada um lida com dinheiro</b><span>Reconhecer os comportamentos, diferenças e pontos de atenção do casal.</span></li>
+      <li><b>Tomar decisões juntos</b><span>Melhorar a comunicação, alinhar prioridades e construir objetivos em comum.</span></li>
+      <li><b>Administrar com princípios bíblicos</b><span>Colocar os princípios como fundamento das decisões financeiras da família.</span></li>
+      <li><b>Organizar o dinheiro na prática</b><span>Construir o orçamento do casal juntos, com uma planilha pronta para usar.</span></li>
+      <li><b>Criar uma rotina financeira a dois</b><span>Saber como acompanhar os gastos e manter o planejamento funcionando.</span></li>
     </ul>
     <p class="selo">Menos improviso, mais clareza e decisões construídas juntos.</p>
     <div class="cta cta--junto"><a class="btn" href="https://pay.hotmart.com/V108424352J">Eu quero viver essa mudança ➔</a></div>
@@ -371,9 +453,9 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 </section>
 
 <!-- FASES -->
-<section class="sec" style="padding-top:0">
+<section class="sec">
   <div class="wrap centro">
-    <h2 style="color:#000">Na prática <span class="ambar">como funciona</span> a Imersão?</h2>
+    <h2>Na prática <span class="ambar">como funciona</span> a Imersão?</h2>
     <p class="sub" style="max-width:520px;margin-inline:auto">Tudo se resume a <b>3 fases simples</b> que se complementam para preparar vocês antes, durante e depois do encontro ao vivo.</p>
   </div>
   <div class="fases">
@@ -382,9 +464,9 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
       <img src="assets/fase-1.png" alt="Casal sentado à mesa em um encontro financeiro" width="800" height="436" loading="lazy">
       <h3>Antes do dia 28, vocês:</h3>
       <ul>
-        <li>✅ Recebem acesso imediato à aula gravada de preparação, na Hotmart.</li>
-        <li>✅ Fazem o encontro financeiro do casal com o roteiro em PDF.</li>
-        <li>✅ Registram dívidas, despesas e parcelas futuras do cartão, e chegam com os números em mãos.</li>
+        <li>Recebem acesso imediato à aula gravada de preparação, na Hotmart.</li>
+        <li>Fazem o encontro financeiro do casal com o roteiro em PDF.</li>
+        <li>Registram dívidas, despesas e parcelas futuras do cartão, e chegam com os números em mãos.</li>
       </ul>
     </article>
     <article class="fase">
@@ -392,10 +474,10 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
       <img src="assets/fase-2.png" alt="Casal assistindo ao evento ao vivo" width="800" height="436" loading="lazy">
       <h3>No dia 28, ao vivo, vocês:</h3>
       <ul>
-        <li>✅ Fazem o diagnóstico individual e o do casal, e aprendem a se alinhar a partir dele.</li>
-        <li>✅ Veem como aplicar princípios bíblicos nas finanças da família, na prática.</li>
-        <li>✅ Constroem o orçamento do casal na planilha, com os números de vocês.</li>
-        <li>✅ Saem com a rotina mensal e com estratégias para sair do endividamento.</li>
+        <li>Fazem o diagnóstico individual e o do casal, e aprendem a se alinhar a partir dele.</li>
+        <li>Veem como aplicar princípios bíblicos nas finanças da família, na prática.</li>
+        <li>Constroem o orçamento do casal na planilha, com os números de vocês.</li>
+        <li>Saem com a rotina mensal e com estratégias para sair do endividamento.</li>
       </ul>
     </article>
     <article class="fase">
@@ -403,16 +485,16 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
       <img src="assets/fase-3.png" alt="Casal diante do computador com a planilha aberta" width="800" height="436" loading="lazy">
       <h3>Depois da imersão, vocês:</h3>
       <ul>
-        <li>✅ Colocam em prática o que construíram no dia 28.</li>
-        <li>✅ Tiram dúvidas com a gente por 30 dias, dentro da plataforma.</li>
-        <li>✅ Reveem a gravação por 30 dias e participam do aulão ao vivo Planejando 2027.</li>
+        <li>Colocam em prática o que construíram no dia 28.</li>
+        <li>Tiram dúvidas com a gente por 30 dias, dentro da plataforma.</li>
+        <li>Reveem a gravação por 30 dias e participam do aulão ao vivo Planejando 2027.</li>
       </ul>
     </article>
   </div>
 </section>
 
 <!-- OFERTA -->
-<section class="sec" id="oferta" style="padding-top:20px">
+<section class="sec" id="oferta">
   <div class="oferta">
     <ul>
       <li>Acesso imediato à pré-imersão</li>
@@ -437,7 +519,7 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 </section>
 
 <!-- QUEM ESTÁ LENDO SOZINHA -->
-<section class="sec" style="padding-top:8px">
+<section class="sec">
   <div class="sozinha">
     <h2>Está lendo isso sozinha, e ele não quer nem ouvir falar em planilha?</h2>
     <p>É mais comum do que parece. Em muitos casais, um dos dois chega resistente, quase sempre por cansaço de conversas que viraram cobrança. A imersão foi pensada para ser o contrário disso:</p>
@@ -451,15 +533,16 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 </section>
 
 <!-- MENTORES -->
-<section class="sec centro" style="padding-top:20px">
+<section class="sec centro">
   <div class="mentores">
-    <div class="mentor"><img src="assets/michael.png" alt="Michael Barreto" width="583" height="799" loading="lazy"><span><b>seu</b>mentor</span></div>
-    <div class="mentor"><img src="assets/cinthia.png" alt="Cinthia Carlos" width="450" height="800" loading="lazy"><span><b>sua</b>mentora</span></div>
+    <div class="mentor"><img src="assets/michael.jpg" alt="Michael Barreto" width="864" height="1184" loading="lazy"><span><b>seu</b>mentor</span></div>
+    <div class="mentor"><img src="assets/cinthia.jpg" alt="Cinthia Carlos" width="1000" height="1778" loading="lazy"><span><b>sua</b>mentora</span></div>
   </div>
   <span class="pill">QUEM SÃO</span>
   <h2>Michael Barreto <span class="ambar">&amp; Cinthia Carlos</span></h2>
 
-  <div class="bio" style="text-align:left">
+  <div class="bios">
+  <div class="bio">
     <ul>
       <li>Administrador, com MBA em Finanças Empresariais.</li>
       <li>Atendeu dezenas de empresas no <b>Sebrae</b>, onde recebeu várias premiações.</li>
@@ -467,11 +550,12 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
     </ul>
     <p>A partir da experiência com empresas, identificou como muitos desafios financeiros também se repetiam dentro dos casamentos e das famílias. Iniciou os atendimentos voltados à organização financeira de casais, levando sua experiência profissional para a realidade familiar.</p>
   </div>
-  <div class="bio" style="text-align:left">
+  <div class="bio">
     <ul>
       <li>Contadora, com mais de uma década de atuação na área, inclusive no <b>exterior</b>.</li>
     </ul>
     <p>Participou do desenvolvimento dos materiais e das ferramentas utilizadas nos atendimentos. Trouxe um olhar feminino para a análise das decisões financeiras e para a dinâmica do casal. Passou a atuar diretamente nos atendimentos, complementando o trabalho de Michael e fortalecendo a identificação das esposas durante o processo. Contribui para integrar a organização financeira à realidade e às necessidades dos casais.</p>
+  </div>
   </div>
 
   <div class="wrap wrap--estreito" style="margin-top:44px">
@@ -482,7 +566,7 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 </section>
 
 <!-- FAQ -->
-<section class="sec" style="padding-top:20px">
+<section class="sec">
   <div class="centro">
     <h2 class="faq-titulo">Ficou com alguma dúvida?</h2>
     <p class="faq-sub">Acesse as perguntas frequentes</p>
@@ -497,14 +581,15 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
     <details name="faq"><summary>7- Vamos sair da imersão com nosso orçamento pronto?</summary><p>Sim! Vamos construir o orçamento de vocês ao vivo, utilizando as informações levantadas no encontro financeiro, que será antes do evento. Todas as informações para realizar o encontro estarão disponíveis imediatamente dentro da plataforma.</p></details>
     <details name="faq"><summary>8- Estamos endividados. Vamos aprender a sair das dívidas?</summary><p>Sim. Durante a imersão, vamos apresentar estratégias para organizar as dívidas e entender caminhos possíveis. Porém, cada família tem uma realidade financeira diferente e, em situações mais específicas, pode ser necessário um planejamento individualizado.</p></details>
     <details name="faq"><summary>9- Como vamos ter acesso à imersão?</summary><p>Assim que o pagamento for aprovado, vocês recebem acesso imediato à plataforma Hotmart, onde ficam os materiais da pré-imersão. No dia 28/11, o encontro ao vivo acontece pelo Zoom, com o link liberado dentro da plataforma. Dá para participar pelo celular, computador ou tablet.</p></details>
-    <details name="faq">Sim. Durante os 30 dias após a imersão, vocês podem tirar dúvidas diretamente com a gente, dentro da plataforma.</p></details>
+    <details name="faq"><summary>10- A imersão tem suporte?</summary><p>Sim. Durante os 30 dias após a imersão, vocês podem tirar dúvidas diretamente com a gente, dentro da plataforma.</p></details>
     <details name="faq"><summary>11- E se não funcionar pra mim?</summary><p>Você tem garantia blindada de 7 dias. Se não gostar, pode pedir 100% do dinheiro de volta. Sem letras miúdas, sem enrolação.</p></details>
   </div>
 </section>
 
 <!-- FINAL -->
-<section class="sec centro final" style="padding-top:0;padding-bottom:72px">
+<section class="sec centro final">
   <h2>O momento perfeito é agora.</h2>
+  <p class="final__data">Sábado, 28/11 · das 14:30 às 18:30 · ao vivo pelo Zoom</p>
   <div class="cta"><a class="btn" href="https://pay.hotmart.com/V108424352J">Participar da imersão ➔</a></div>
 </section>
 
@@ -520,6 +605,25 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
     });
   });
   d.addEventListener('click',function(){d.close()});
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement;
+  if(!('IntersectionObserver' in window)) return;
+  var sel='.hero__col > *, .hero__foto, .sec h2, .sub, .frases span, .compara__col, .wrap > p, .wrap--estreito > p, .duas, .foto--larga, .nasceu, .depo button, .aprende li, .selo, .fase, .oferta, .sozinha, .mentores, .pill, .bio, .faq details, .faq-sub, .final__data, .cta';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  els.forEach(function(el){
+    el.classList.add('rv');
+    var i=[].indexOf.call(el.parentNode.children,el);
+    el.style.setProperty('--d',Math.min(i,5)*70+'ms');
+  });
+  root.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(el){ io.observe(el); });
+  setTimeout(function(){ if(!document.querySelector('.rv.in')) root.classList.remove('js'); },3000);
 })();
 </script>
 </body>
