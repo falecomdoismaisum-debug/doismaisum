@@ -187,9 +187,13 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 .bio p{margin:0}
 
 /* FAQ */
-.faq{max-width:940px;margin:36px auto 0;display:grid;gap:34px}
-.faq h3{background:var(--ambar);color:#000;font-size:1rem;border-radius:999px;padding:11px 28px;margin-bottom:8px}
-.faq p{background:var(--marrom);color:#fff;border-radius:26px;padding:22px 28px 34px;font-size:.95rem}
+.faq{max-width:940px;margin:36px auto 0;display:grid;gap:14px}
+.faq summary{background:var(--ambar);color:#000;font-weight:700;border-radius:26px;padding:14px 56px 14px 28px;cursor:pointer;list-style:none;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:1.6rem;font-weight:400;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq summary:focus-visible{outline:3px solid var(--marrom);outline-offset:3px}
+.faq p{background:var(--marrom);color:#fff;border-radius:26px;padding:22px 28px 26px;font-size:.95rem;margin-top:8px}
 .faq-titulo{color:#000;font-size:clamp(1.8rem,5.4vw,2.6rem)}
 .faq-sub{color:#000;font-weight:700;text-transform:uppercase;font-size:1.1rem}
 .final h2{color:#000;font-size:clamp(1.7rem,5vw,2.4rem)}
@@ -209,8 +213,9 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
   .oferta{grid-template-columns:1fr;padding:18px;gap:22px}
   .oferta li{border-radius:22px}
   .bio{padding:20px 22px;border-radius:24px}
-  .faq h3{border-radius:20px;padding:11px 20px}
-  .faq p{padding:18px 20px 24px;border-radius:20px}
+  .faq summary{border-radius:20px;padding:13px 48px 13px 20px}
+  .faq summary::after{right:18px}
+  .faq p{padding:18px 20px 22px;border-radius:20px}
   .mentor + .mentor{margin-left:-22px;margin-top:30px}
   .mentor img{border-width:6px}
   .mentor span{font-size:.7rem;padding:4px 8px}
@@ -482,17 +487,17 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
     <p class="faq-sub">Acesse as perguntas frequentes</p>
   </div>
   <div class="faq">
-    <div><h3>1- Essa imersão é apenas para casais que estão endividados?</h3><p>Não! A imersão também é para casais que ganham bem, mas não conseguem guardar dinheiro, não têm um orçamento organizado, não possuem uma reserva de segurança ou não conseguem alinhar suas decisões financeiras.</p></div>
-    <div><h3>2- Já temos uma planilha financeira. Ainda assim vale a pena participar?</h3><p>Sim! Apesar da importância da planilha, ela não resolve sozinha os problemas financeiros de um casal. Por isso trabalhamos com 3 pilares: comportamental, espiritual e organização financeira.</p></div>
-    <div><h3>3- E se não conseguirmos acompanhar toda a imersão ao vivo?</h3><p>Além da participação ao vivo, até 3 dias após o evento, iremos disponibilizar a gravação da imersão e vocês terão acesso por 30 dias.</p></div>
-    <div><h3>4- E se meu cônjuge não quiser participar, eu posso?</h3><p>Pode. Você sai com clareza sobre a situação financeira da casa e com o caminho para organizar. Mas o orçamento é construído a dois, então o resultado é maior quando o casal participa junto. A gravação fica disponível por 30 dias, e vocês podem assistir juntos depois.</p></div>
-    <div><h3>5- Não somos cristãos. A imersão serve para nós?</h3><p>Serve. Nosso conteúdo usa princípios bíblicos como fundamento, e a maior parte dos casais que atendemos é cristã. Mas o orçamento, a organização das dívidas e a rotina financeira funcionam para qualquer casal.</p></div>
-    <div><h3>6- Temos formas muito diferentes de lidar com dinheiro. A imersão pode nos ajudar?</h3><p>Sim, esse é um dos pontos principais que trabalhamos no pilar comportamental. Na imersão vocês vão aprender a lidar com as diferenças sobre dinheiro em casal.</p></div>
-    <div><h3>7- Vamos sair da imersão com nosso orçamento pronto?</h3><p>Sim! Vamos construir o orçamento de vocês ao vivo, utilizando as informações levantadas no encontro financeiro, que será antes do evento. Todas as informações para realizar o encontro estarão disponíveis imediatamente dentro da plataforma.</p></div>
-    <div><h3>8- Estamos endividados. Vamos aprender a sair das dívidas?</h3><p>Sim. Durante a imersão, vamos apresentar estratégias para organizar as dívidas e entender caminhos possíveis. Porém, cada família tem uma realidade financeira diferente e, em situações mais específicas, pode ser necessário um planejamento individualizado.</p></div>
-    <div><h3>9- Como vamos ter acesso à imersão?</h3><p>Assim que o pagamento for aprovado, vocês recebem acesso imediato à plataforma Hotmart, onde ficam os materiais da pré-imersão. No dia 28/11, o encontro ao vivo acontece pelo Zoom, com o link liberado dentro da plataforma. Dá para participar pelo celular, computador ou tablet.</p></div>
-    <div><h3>10- A imersão tem suporte?</h3><p>Sim. Você terá acesso à área de membros e a uma equipe de suporte preparada para responder suas dúvidas dentro da plataforma.</p></div>
-    <div><h3>11- E se não funcionar pra mim?</h3><p>Você tem garantia blindada de 7 dias. Se não gostar, pode pedir 100% do dinheiro de volta. Sem letras miúdas, sem enrolação.</p></div>
+    <details name="faq"><summary>1- Essa imersão é apenas para casais que estão endividados?</summary><p>Não! A imersão também é para casais que ganham bem, mas não conseguem guardar dinheiro, não têm um orçamento organizado, não possuem uma reserva de segurança ou não conseguem alinhar suas decisões financeiras.</p></details>
+    <details name="faq"><summary>2- Já temos uma planilha financeira. Ainda assim vale a pena participar?</summary><p>Sim! Apesar da importância da planilha, ela não resolve sozinha os problemas financeiros de um casal. Por isso trabalhamos com 3 pilares: comportamental, espiritual e organização financeira.</p></details>
+    <details name="faq"><summary>3- E se não conseguirmos acompanhar toda a imersão ao vivo?</summary><p>Além da participação ao vivo, até 3 dias após o evento, iremos disponibilizar a gravação da imersão e vocês terão acesso por 30 dias.</p></details>
+    <details name="faq"><summary>4- E se meu cônjuge não quiser participar, eu posso?</summary><p>Pode. Você sai com clareza sobre a situação financeira da casa e com o caminho para organizar. Mas o orçamento é construído a dois, então o resultado é maior quando o casal participa junto. A gravação fica disponível por 30 dias, e vocês podem assistir juntos depois.</p></details>
+    <details name="faq"><summary>5- Não somos cristãos. A imersão serve para nós?</summary><p>Serve. Nosso conteúdo usa princípios bíblicos como fundamento, e a maior parte dos casais que atendemos é cristã. Mas o orçamento, a organização das dívidas e a rotina financeira funcionam para qualquer casal.</p></details>
+    <details name="faq"><summary>6- Temos formas muito diferentes de lidar com dinheiro. A imersão pode nos ajudar?</summary><p>Sim, esse é um dos pontos principais que trabalhamos no pilar comportamental. Na imersão vocês vão aprender a lidar com as diferenças sobre dinheiro em casal.</p></details>
+    <details name="faq"><summary>7- Vamos sair da imersão com nosso orçamento pronto?</summary><p>Sim! Vamos construir o orçamento de vocês ao vivo, utilizando as informações levantadas no encontro financeiro, que será antes do evento. Todas as informações para realizar o encontro estarão disponíveis imediatamente dentro da plataforma.</p></details>
+    <details name="faq"><summary>8- Estamos endividados. Vamos aprender a sair das dívidas?</summary><p>Sim. Durante a imersão, vamos apresentar estratégias para organizar as dívidas e entender caminhos possíveis. Porém, cada família tem uma realidade financeira diferente e, em situações mais específicas, pode ser necessário um planejamento individualizado.</p></details>
+    <details name="faq"><summary>9- Como vamos ter acesso à imersão?</summary><p>Assim que o pagamento for aprovado, vocês recebem acesso imediato à plataforma Hotmart, onde ficam os materiais da pré-imersão. No dia 28/11, o encontro ao vivo acontece pelo Zoom, com o link liberado dentro da plataforma. Dá para participar pelo celular, computador ou tablet.</p></details>
+    <details name="faq"><summary>10- A imersão tem suporte?</summary><p>Sim. Você terá acesso à área de membros e a uma equipe de suporte preparada para responder suas dúvidas dentro da plataforma.</p></details>
+    <details name="faq"><summary>11- E se não funcionar pra mim?</summary><p>Você tem garantia blindada de 7 dias. Se não gostar, pode pedir 100% do dinheiro de volta. Sem letras miúdas, sem enrolação.</p></details>
   </div>
 </section>
 
