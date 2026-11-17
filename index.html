@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Imersão Dois mais Um</title>
-<meta name="description" content="Imersão ao vivo para casais, dia 28/11 das 14:30 às 18:30. Em 4 horas, aprendam a administrar o dinheiro juntos e construam o planejamento financeiro da família.">
+<meta name="description" content="Imersão online e ao vivo para casais endividados, sábado 28/11, das 14:30 às 18:30. Em 4 horas, vocês montam o orçamento do casal e saem sabendo qual é o próximo passo.">
 <meta property="og:title" content="Imersão Dois mais Um">
-<meta property="og:description" content="Em 4 horas, aprendam a administrar o dinheiro juntos e construam o planejamento financeiro da família. Ao vivo, dia 28/11.">
+<meta property="og:description" content="Para casais endividados: em 4 horas, ao vivo, vocês montam o orçamento do casal e saem sabendo qual é o próximo passo. Sábado, 28/11.">
 <meta property="og:image" content="https://doismaisum.com/assets/og.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://doismaisum.com/">
@@ -65,10 +65,24 @@ h2{font-size:clamp(1.5rem,4.2vw,2rem);font-weight:700}
 /* Abertura */
 .hero{padding:8px 20px 44px;text-align:center}
 .hero__logo{width:min(440px,88%);margin:0 auto -34px}
-.hero__data{font-weight:700;text-transform:uppercase;line-height:1.3}
+.hero__tag{
+  display:inline-block;background:var(--marrom);color:#fff;font-weight:700;font-size:.85rem;
+  letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:8px 20px;margin:0;
+}
+.hero__data{font-weight:700;text-transform:uppercase;line-height:1.3;margin:26px 0 0}
 .hero__data span{display:block;font-weight:400;text-transform:none}
-.hero h1{font-size:clamp(1.45rem,4.6vw,2rem);font-weight:700;max-width:680px;margin:36px auto 18px}
-.hero__texto{max-width:560px;margin:0 auto}
+.hero h1{font-size:clamp(1.7rem,5.4vw,2.6rem);font-weight:800;line-height:1.18;max-width:760px;margin:22px auto 18px}
+.hero h1 span{display:block;color:var(--ambar)}
+.hero__texto{max-width:580px;margin:0 auto;font-size:1.08em}
+.hero .cta{margin-top:26px}
+
+/* Quem está lendo sozinha */
+.sozinha{max-width:760px;margin:0 auto;background:var(--marrom);color:#fff;border-radius:30px;padding:38px 34px}
+.sozinha h2{font-size:clamp(1.35rem,3.8vw,1.75rem);margin-bottom:.6em}
+.sozinha ul{list-style:none;margin:1.4em 0;padding:0;display:grid;gap:14px}
+.sozinha li{background:rgba(255,255,255,.09);border-radius:18px;padding:14px 18px}
+.sozinha li b{color:var(--laranja)}
+.preco__nota{font-size:.85rem;margin:0 0 1.2em;opacity:.9}
 
 /* Dores */
 .frases{display:grid;grid-template-columns:repeat(2,minmax(0,340px));justify-content:center;gap:18px 20px;margin-top:34px}
@@ -212,10 +226,11 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
 <!-- ABERTURA -->
 <header class="hero">
   <img class="hero__logo" src="assets/logo.png" alt="Imersão Dois mais Um" width="800" height="450">
-  <p class="hero__data">Evento ao vivo dia 28/11 <span>das 14:30 às 18:30</span></p>
-  <h1>O dinheiro não precisa ser motivo de conflito entre vocês. Aprendam a administrar juntos e construir o futuro financeiro da família.</h1>
-  <p class="hero__texto">✅ Em apenas 4 horas, descubram como transformar a relação de vocês com o dinheiro, alinhar decisões e construir um planejamento financeiro que funcione para os dois.</p>
-  <div class="cta"><a class="btn" href="https://pay.hotmart.com/V108424352J">Quero nossa transformação ➔</a></div>
+  <p class="hero__tag">Imersão online e ao vivo para casais endividados</p>
+  <h1>A dívida não acaba em uma tarde. <span>A angústia de não saber o que fazer, sim.</span></h1>
+  <p class="hero__texto">Em 4 horas, vocês dois colocam as dívidas no papel, montam o orçamento do casal e saem sabendo qual é o próximo passo. Sem briga e sem um carregar o peso sozinho.</p>
+  <p class="hero__data">Sábado, 28/11 <span>das 14:30 às 18:30, ao vivo pelo Zoom</span></p>
+  <div class="cta"><a class="btn" href="https://pay.hotmart.com/V108424352J">Quero sair com o nosso plano ➔</a></div>
 </header>
 
 <!-- DORES -->
@@ -364,7 +379,7 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
       <ul>
         <li>✅ Recebe os materiais necessários para fazer o encontro financeiro.</li>
         <li>✅ Instruções práticas de como seguir o mês até a imersão.</li>
-        <li>✅ Veja resultados já nos primeiros dias.</li>
+        <li>✅ Chega ao dia 28 com os números de vocês em mãos.</li>
       </ul>
     </article>
     <article class="fase">
@@ -408,9 +423,24 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
       <p class="preco__de">De <s>R$400</s> por:</p>
       <p class="preco__valor">12x <b>R$25</b></p>
       <p class="preco__vista">ou R$ 247 à vista.</p>
-      <a class="btn" href="https://pay.hotmart.com/V108424352J">Quero minha vaga com desconto ➔</a>
+      <p class="preco__nota">Valor promocional de lançamento. O valor previsto para as próximas edições é R$ 400.</p>
+      <a class="btn" href="https://pay.hotmart.com/V108424352J">Quero garantir nossa vaga ➔</a>
       <p class="preco__garantia">Garantia de 7 dias: 100% do dinheiro de volta.</p>
     </div>
+  </div>
+</section>
+
+<!-- QUEM ESTÁ LENDO SOZINHA -->
+<section class="sec" style="padding-top:8px">
+  <div class="sozinha">
+    <h2>Está lendo isso sozinha, e ele não quer nem ouvir falar em planilha?</h2>
+    <p>É mais comum do que parece. Em muitos casais, um dos dois chega resistente, quase sempre por cansaço de conversas que viraram cobrança. A imersão foi pensada para ser o contrário disso:</p>
+    <ul>
+      <li><b>É uma tarde só.</b> Quatro horas, de casa, pelo Zoom.</li>
+      <li><b>Não é sobre achar culpado.</b> É sobre montar um plano que os dois consigam seguir.</li>
+      <li><b>Quem conduz já passou por isso.</b> Michael e Cinthia já deveram mais de R$ 100 mil e contam como saíram.</li>
+    </ul>
+    <p>E se ele não puder ou não quiser no dia, a gravação fica disponível por 30 dias para vocês assistirem juntos depois.</p>
   </div>
 </section>
 
@@ -455,13 +485,14 @@ dialog img{width:100%;border-radius:8px;cursor:zoom-out}
     <div><h3>1- Essa imersão é apenas para casais que estão endividados?</h3><p>Não! A imersão também é para casais que ganham bem, mas não conseguem guardar dinheiro, não têm um orçamento organizado, não possuem uma reserva de segurança ou não conseguem alinhar suas decisões financeiras.</p></div>
     <div><h3>2- Já temos uma planilha financeira. Ainda assim vale a pena participar?</h3><p>Sim! Apesar da importância da planilha, ela não resolve sozinha os problemas financeiros de um casal. Por isso trabalhamos com 3 pilares: comportamental, espiritual e organização financeira.</p></div>
     <div><h3>3- E se não conseguirmos acompanhar toda a imersão ao vivo?</h3><p>Além da participação ao vivo, até 3 dias após o evento, iremos disponibilizar a gravação da imersão e vocês terão acesso por 30 dias.</p></div>
-    <div><h3>4- E se meu cônjuge não quiser participar, eu posso?</h3><p>Sim, você até pode participar, mas a imersão foi toda pensada para o casal, por isso seu aproveitamento não será de 100%.</p></div>
-    <div><h3>5- Temos formas muito diferentes de lidar com dinheiro. A imersão pode nos ajudar?</h3><p>Sim, esse é um dos pontos principais que trabalhamos no pilar comportamental. Na imersão vocês vão aprender a lidar com as diferenças sobre dinheiro em casal.</p></div>
-    <div><h3>6- Vamos sair da imersão com nosso orçamento pronto?</h3><p>Sim! Vamos construir o orçamento de vocês ao vivo, utilizando as informações levantadas no encontro financeiro, que será antes do evento. Todas as informações para realizar o encontro estarão disponíveis imediatamente dentro da plataforma.</p></div>
-    <div><h3>7- Estamos endividados. Vamos aprender a sair das dívidas?</h3><p>Sim. Durante a imersão, vamos apresentar estratégias para organizar as dívidas e entender caminhos possíveis. Porém, cada família tem uma realidade financeira diferente e, em situações mais específicas, pode ser necessário um planejamento individualizado.</p></div>
-    <div><h3>8- Como ter acesso à imersão?</h3><p>Assim que seu pagamento for aprovado, você recebe acesso imediato à plataforma Hotmart. Pode assistir pelo celular, computador ou tablet, quando e onde quiser.</p></div>
-    <div><h3>9- A imersão tem suporte?</h3><p>Sim. Você terá acesso à área de membros e a uma equipe de suporte preparada para responder suas dúvidas dentro da plataforma.</p></div>
-    <div><h3>10- E se não funcionar pra mim?</h3><p>Você tem garantia blindada de 7 dias. Se não gostar, pode pedir 100% do dinheiro de volta. Sem letras miúdas, sem enrolação.</p></div>
+    <div><h3>4- E se meu cônjuge não quiser participar, eu posso?</h3><p>Pode. Você sai com clareza sobre a situação financeira da casa e com o caminho para organizar. Mas o orçamento é construído a dois, então o resultado é maior quando o casal participa junto. A gravação fica disponível por 30 dias, e vocês podem assistir juntos depois.</p></div>
+    <div><h3>5- Não somos cristãos. A imersão serve para nós?</h3><p>Serve. Nosso conteúdo usa princípios bíblicos como fundamento, e a maior parte dos casais que atendemos é cristã. Mas o orçamento, a organização das dívidas e a rotina financeira funcionam para qualquer casal.</p></div>
+    <div><h3>6- Temos formas muito diferentes de lidar com dinheiro. A imersão pode nos ajudar?</h3><p>Sim, esse é um dos pontos principais que trabalhamos no pilar comportamental. Na imersão vocês vão aprender a lidar com as diferenças sobre dinheiro em casal.</p></div>
+    <div><h3>7- Vamos sair da imersão com nosso orçamento pronto?</h3><p>Sim! Vamos construir o orçamento de vocês ao vivo, utilizando as informações levantadas no encontro financeiro, que será antes do evento. Todas as informações para realizar o encontro estarão disponíveis imediatamente dentro da plataforma.</p></div>
+    <div><h3>8- Estamos endividados. Vamos aprender a sair das dívidas?</h3><p>Sim. Durante a imersão, vamos apresentar estratégias para organizar as dívidas e entender caminhos possíveis. Porém, cada família tem uma realidade financeira diferente e, em situações mais específicas, pode ser necessário um planejamento individualizado.</p></div>
+    <div><h3>9- Como vamos ter acesso à imersão?</h3><p>Assim que o pagamento for aprovado, vocês recebem acesso imediato à plataforma Hotmart, onde ficam os materiais da pré-imersão. No dia 28/11, o encontro ao vivo acontece pelo Zoom, com o link liberado dentro da plataforma. Dá para participar pelo celular, computador ou tablet.</p></div>
+    <div><h3>10- A imersão tem suporte?</h3><p>Sim. Você terá acesso à área de membros e a uma equipe de suporte preparada para responder suas dúvidas dentro da plataforma.</p></div>
+    <div><h3>11- E se não funcionar pra mim?</h3><p>Você tem garantia blindada de 7 dias. Se não gostar, pode pedir 100% do dinheiro de volta. Sem letras miúdas, sem enrolação.</p></div>
   </div>
 </section>
 
