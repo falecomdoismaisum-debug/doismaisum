@@ -250,6 +250,27 @@ dialog img{width:100%;border-radius:12px;cursor:zoom-out}
 .final .cta{margin-top:30px}
 .final{margin-bottom:clamp(20px,4vw,44px)}
 
+/* Temporizador suspenso */
+.prazo{position:sticky;top:10px;z-index:50;display:flex;justify-content:center;padding:10px 12px 0;pointer-events:none}
+.prazo__in{
+  pointer-events:auto;display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;justify-content:center;
+  background:var(--marrom-esc);color:#F3ECE4;text-decoration:none;border-radius:999px;
+  padding:9px 12px 9px 22px;font-size:.84rem;line-height:1.2;
+  box-shadow:0 14px 34px -14px rgba(62,47,37,.7);
+}
+.prazo__in:focus-visible{outline:3px solid var(--laranja);outline-offset:3px}
+.prazo__txt b{color:var(--laranja);font-weight:700}
+.prazo__tempo{display:flex;gap:6px;font-variant-numeric:tabular-nums}
+.prazo__tempo[hidden]{display:none}
+.prazo__tempo span{display:flex;align-items:baseline;gap:3px;background:rgba(255,255,255,.1);border-radius:999px;padding:6px 11px;font-size:.7rem;letter-spacing:.04em}
+.prazo__tempo b{font-size:.98rem;font-weight:700;color:#fff}
+.prazo--fim .prazo__in{padding:10px 22px}
+@media (max-width:480px){
+  .prazo{top:8px;padding:8px 8px 0}
+  .prazo__in{border-radius:22px;padding:9px 12px 10px;gap:7px;font-size:.8rem}
+  .prazo__tempo span{padding:5px 9px}
+}
+
 /* Entrada suave na rolagem */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
 .js .rv.in{opacity:1;transform:none}
@@ -283,6 +304,17 @@ dialog img{width:100%;border-radius:12px;cursor:zoom-out}
 </style>
 </head>
 <body>
+<div class="prazo">
+  <a class="prazo__in" href="https://pay.hotmart.com/V108424352J">
+    <span class="prazo__txt">Inscrições encerram em <b>25/11</b></span>
+    <span class="prazo__tempo" data-prazo hidden>
+      <span><b data-u="d">00</b>dias</span>
+      <span><b data-u="h">00</b>h</span>
+      <span><b data-u="m">00</b>min</span>
+      <span><b data-u="s">00</b>s</span>
+    </span>
+  </a>
+</div>
 <main>
 
 <!-- ABERTURA -->
@@ -466,7 +498,7 @@ dialog img{width:100%;border-radius:12px;cursor:zoom-out}
     <p class="antes__conta" data-faltam>A imersão é no sábado, 28/11</p>
     <h2>Quanto antes vocês entram, mais preparados chegam.</h2>
     <p>A imersão começa antes do dia 28. Assim que a inscrição é confirmada, vocês recebem a aula de preparação e o roteiro do encontro financeiro do casal.</p>
-    <p>Quem entra hoje faz esse encontro com calma e chega ao dia 28 com os números em mãos. Quem deixa para a véspera chega sem essa base, e é com ela que o orçamento do casal é construído.</p>
+    <p>Quem entra hoje faz esse encontro com calma e chega ao dia 28 com os números em mãos, que são a base do orçamento do casal. As inscrições vão só até o dia 25/11, e quem deixa para o último dia tem menos tempo para se preparar.</p>
   </div>
 </section>
 
@@ -610,6 +642,29 @@ dialog img{width:100%;border-radius:12px;cursor:zoom-out}
   if(d>1) el.textContent='Faltam '+d+' dias para a imersão';
   else if(d===1) el.textContent='A imersão é amanhã';
   else if(d===0) el.textContent='A imersão é hoje';
+})();
+</script>
+<script>
+(function(){
+  var box=document.querySelector('[data-prazo]'); if(!box) return;
+  var fim=new Date('2026-11-25T23:59:59-03:00').getTime();
+  var u={}; [].forEach.call(box.querySelectorAll('[data-u]'),function(b){u[b.getAttribute('data-u')]=b;});
+  function dd(n){return (n<10?'0':'')+n;}
+  function tic(){
+    var r=Math.floor((fim-Date.now())/1000);
+    if(r<=0){
+      box.hidden=true;
+      document.querySelector('.prazo').classList.add('prazo--fim');
+      document.querySelector('.prazo__txt').textContent='Inscrições encerradas';
+      clearInterval(t); return;
+    }
+    u.d.textContent=dd(Math.floor(r/86400));
+    u.h.textContent=dd(Math.floor(r%86400/3600));
+    u.m.textContent=dd(Math.floor(r%3600/60));
+    u.s.textContent=dd(r%60);
+    box.hidden=false;
+  }
+  var t=setInterval(tic,1000); tic();
 })();
 </script>
 </body>
