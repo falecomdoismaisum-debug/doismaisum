@@ -83,7 +83,7 @@ b,strong{font-weight:600}
 .cta{margin-top:40px;text-align:center}
 
 /* Abertura */
-.hero{padding:clamp(28px,5vw,56px) 20px clamp(40px,6vw,76px);text-align:center;background:radial-gradient(900px 520px at 50% 0%,var(--bege) 0%,rgba(232,221,210,0) 70%)}
+.hero{padding:clamp(16px,3vw,36px) 20px clamp(40px,6vw,76px);text-align:center;background:radial-gradient(900px 520px at 50% 0%,var(--bege) 0%,rgba(232,221,210,0) 70%)}
 .hero__logo{width:min(300px,72%);margin:0 auto 16px}
 .hero__data{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--oliva);margin:0 0 28px;line-height:1.8}
 .hero__data span{display:block;font-weight:400;letter-spacing:.08em}
@@ -250,10 +250,10 @@ dialog img{width:100%;border-radius:12px;cursor:zoom-out}
 .final .cta{margin-top:30px}
 .final{margin-bottom:clamp(20px,4vw,44px)}
 
-/* Temporizador suspenso */
-.prazo{position:sticky;top:10px;z-index:50;display:flex;justify-content:center;padding:10px 12px 0;pointer-events:none}
+/* Temporizador em balão: parado no topo e flutuante depois do logo */
+.prazo{display:flex;justify-content:center;padding:14px 12px 0}
 .prazo__in{
-  pointer-events:auto;display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;justify-content:center;
+  display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;justify-content:center;
   background:var(--marrom-esc);color:#F3ECE4;text-decoration:none;border-radius:999px;
   padding:9px 12px 9px 22px;font-size:.84rem;line-height:1.2;
   box-shadow:0 14px 34px -14px rgba(62,47,37,.7);
@@ -265,11 +265,14 @@ dialog img{width:100%;border-radius:12px;cursor:zoom-out}
 .prazo__tempo span{display:flex;align-items:baseline;gap:3px;background:rgba(255,255,255,.1);border-radius:999px;padding:6px 11px;font-size:.7rem;letter-spacing:.04em}
 .prazo__tempo b{font-size:.98rem;font-weight:700;color:#fff}
 .prazo--fim .prazo__in{padding:10px 22px}
+.prazo--flutua .prazo__in{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:50;width:max-content;max-width:calc(100% - 16px);animation:prazo-desce .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes prazo-desce{from{transform:translate(-50%,-160%)}to{transform:translate(-50%,0)}}
 @media (max-width:480px){
-  .prazo{top:8px;padding:8px 8px 0}
+  .prazo{padding:10px 8px 0}
   .prazo__in{border-radius:22px;padding:9px 12px 10px;gap:7px;font-size:.8rem}
   .prazo__tempo span{padding:5px 9px}
 }
+@media (prefers-reduced-motion:reduce){.prazo--flutua .prazo__in{animation:none}}
 
 /* Entrada suave na rolagem */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
@@ -665,6 +668,15 @@ dialog img{width:100%;border-radius:12px;cursor:zoom-out}
     box.hidden=false;
   }
   var t=setInterval(tic,1000); tic();
+  var faixa=document.querySelector('.prazo'), logo=document.querySelector('.hero__logo');
+  function flutua(){
+    var lim=logo?logo.getBoundingClientRect().bottom+window.pageYOffset:300;
+    var on=window.pageYOffset>lim;
+    if(on===faixa.classList.contains('prazo--flutua')) return;
+    if(on) faixa.style.minHeight=faixa.offsetHeight+'px';
+    faixa.classList.toggle('prazo--flutua',on);
+  }
+  window.addEventListener('scroll',flutua,{passive:true}); window.addEventListener('resize',flutua); flutua();
 })();
 </script>
 </body>
